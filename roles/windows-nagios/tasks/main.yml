@@ -6,7 +6,16 @@
     arguments:
     - '/passive'
 
-- name: write firewall rules
+- name: allow icmp in firewall
+  win_firewall_rule:
+    name: icmp v4 allow
+    enabled: yes
+    state: present
+    action: allow
+    direction: in
+    protocol: icmpv4
+
+- name: allow nsclient in firewall
   win_firewall_rule:
     name: nsclient
     localport: 12489
