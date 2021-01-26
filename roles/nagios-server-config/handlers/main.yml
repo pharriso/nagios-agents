@@ -1,0 +1,6 @@
+- name: reload nagios
+  systemd:
+    state: reloaded
+    name: nagios
+  delegate_to: "{{ nagios_host }}"
+

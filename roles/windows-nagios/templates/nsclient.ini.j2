@@ -1,0 +1,57 @@
+# If you want to fill this file with all available options run the following command:
+#   nscp settings --generate --add-defaults --load-all
+# If you want to activate a module and bring in all its options use:
+#   nscp settings --activate-module <MODULE NAME> --add-defaults
+# For details run: nscp settings --help
+ 
+ 
+; in flight - TODO
+[/settings/default]
+ 
+; Undocumented key
+password = {{ nagios_password }}
+ 
+; Undocumented key
+allowed hosts = 127.0.0.1, {{ nagios_host }}
+ 
+ 
+; in flight - TODO
+[/settings/NRPE/server]
+ 
+; Undocumented key
+ssl options = no-sslv2,no-sslv3
+ 
+; Undocumented key
+verify mode = peer-cert
+ 
+; Undocumented key
+insecure = false
+ 
+ 
+; in flight - TODO
+[/modules]
+ 
+; Undocumented key
+CheckExternalScripts = enabled
+ 
+; Undocumented key
+CheckHelpers = enabled
+ 
+; Undocumented key
+CheckEventLog = enabled
+ 
+; Undocumented key
+CheckNSCP = enabled
+ 
+; Undocumented key
+CheckDisk = enabled
+ 
+; Undocumented key
+CheckSystem = enabled
+ 
+; Undocumented key
+NRPEServer = enabled
+
+port = 12489
+
+NSClientServer = 1

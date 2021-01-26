@@ -1,0 +1,10 @@
+---
+
+- name: install nagios nsclient agent on windows server
+  hosts: all
+  connection: winrm
+  vars:
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_transport: basic
+  roles:
+  - windows-nagios

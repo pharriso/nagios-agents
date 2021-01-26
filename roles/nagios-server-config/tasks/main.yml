@@ -1,0 +1,13 @@
+- name: create config file on nagios server
+  template:
+    src: nagios_definition.cfg.j2
+    dest: /usr/local/nagios/etc/objects/{{ inventory_hostname }}.cfg
+  notify: reload nagios
+  delegate_to: "{{ nagios_host }}"
+
+- name: add server to nagios.cfg
+  lineinfile:
+    path: /usr/local/nagios/etc/nagios.cfg
+    line: cfg_file=/usr/local/nagios/etc/objects/{{ inventory_hostname }}.cfg
+  delegate_to: "{{ nagios_host }}"
+  notify: reload nagios

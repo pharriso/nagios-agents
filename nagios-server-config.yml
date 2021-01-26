@@ -1,0 +1,7 @@
+---
+
+- name: add clients to nagios server
+  hosts: all
+  gather_facts: false
+  roles:
+  - nagios-server-config

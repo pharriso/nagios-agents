@@ -1,0 +1,4 @@
+nagios_host: nagios.demolab.local
+# shouldn't do this!
+nagios_password: Redhat123
+nagios_software: NSCP-0.5.2.35-x64.msi

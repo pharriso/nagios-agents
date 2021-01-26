@@ -1,0 +1,28 @@
+- name: install nsclient
+  win_package:
+    path: http://{{ nagios_host }}/{{ nagios_software }}
+    product_id: '{33F14A86-E280-49DD-B3A2-FCD4EEF47F2F}'
+    state: present
+    arguments:
+    - '/passive'
+
+- name: write firewall rules
+  win_firewall_rule:
+    name: nsclient
+    localport: 12489
+    action: allow
+    direction: in
+    protocol: tcp
+    state: present
+    enabled: yes
+
+- name: template out the nsclient config file
+  win_template:
+    src: nsclient.ini.j2
+    dest: C:\Program Files\NSClient++\nsclient.ini
+
+- name: restart service
+  win_service:
+    name: nscp
+    state: restarted
+
