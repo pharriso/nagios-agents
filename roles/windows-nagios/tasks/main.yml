@@ -35,3 +35,8 @@
     name: nscp
     state: restarted
 
+- name: set os family variable
+  set_stats:
+    data:
+      os_family: "{{ ansible_os_family }}"
+

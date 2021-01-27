@@ -1,0 +1,16 @@
+---
+
+- name: get npre agent tar file
+  unarchive:
+    src: http://{{ nagios_host }}/linux-nrpe-agent.tar.gz
+    dest: /tmp
+    remote_src: yes
+
+- name: install agent
+  script:
+    cmd: /tmp/linux-nrpe-agent/fullinstall
+
+- name: set os family variable
+  set_stats:
+    data:
+      os_family: "{{ ansible_os_family }}"

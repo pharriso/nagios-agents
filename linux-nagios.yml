@@ -1,0 +1,6 @@
+---
+
+- name: install nagios nrpe agent on linux server
+  hosts: all
+  roles:
+  - linux-nagios-script
