@@ -7,7 +7,9 @@
     remote_src: yes
 
 - name: install agent
-  shell: /tmp/linux-nrpe-agent/fullinstall
+  shell: ./fullinstall
+  args:
+    chdir: /tmp/linux-nrpe-agent/
 
 - name: set os family variable
   set_stats:
