@@ -7,7 +7,7 @@
     remote_src: yes
 
 - name: install agent
-  shell: ./fullinstall
+  shell: ./fullinstall --non-interactive --allowed-ips {{ nagios_host }}
   args:
     chdir: /tmp/linux-nrpe-agent/
 
